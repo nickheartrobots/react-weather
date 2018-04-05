@@ -1,4 +1,4 @@
-import { getWeatherDataByLatLong } from './Weather'
+import { getCurrentWeatherByLatLon, getForcastByLatLon } from './Weather'
 import {
     GEO_LOCATION_SET_LOCATION,
     GEO_LOCATION_SET_IS_AVAILABLE
@@ -20,12 +20,13 @@ const setGeoLocation = (location) => {
 
 export const getGeoLocation = () => {
     return (dispatch) => {
-        console.log(navigator);
         if("geolocation" in navigator){
-            dispatch(setLocationAvailable(true));
             navigator.geolocation.getCurrentPosition((position) => {
+                const {latitude, longitude} = position.coords;
                 dispatch(setGeoLocation(position));
-                dispatch(getWeatherDataByLatLong(position.coords.latitude, position.coords.longitude));
+                dispatch(setLocationAvailable(true));
+                dispatch(getCurrentWeatherByLatLon(latitude, longitude));
+                dispatch(getForcastByLatLon(latitude, longitude));
             })
         } else {
             dispatch(setLocationAvailable(false));

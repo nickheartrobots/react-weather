@@ -5,12 +5,13 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
-    "redux":"^3.7.2",
     "react-redux": "^5.0.6",
-    "redux-thunk":"^2.2.0",
+    "react-render-html": "^0.6.0",
+    "react-router": "3.*.*",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "react-render-html": "^0.6.0"
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
