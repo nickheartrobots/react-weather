@@ -36,7 +36,7 @@ class App extends Component {
 			<div>
 				<div className="jumbotron jumbo">
 					<div className="container">
-						<h1 className="display-4">Weather App</h1>
+						<h1 className="display-4">Nick's Weather App</h1>
 						<p className="lead">This is a Simple Weather App created using Reactjs, Redux, Bootstrap, and the Open Weather Map API</p>
 					</div>
 					<div className="row justify-content-center">
