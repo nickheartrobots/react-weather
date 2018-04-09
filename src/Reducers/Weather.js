@@ -1,16 +1,16 @@
 export const WEATHER_UPDATE_CURRENT = "WEATHER_UPDATE_CURRENT";
-export const WEATHER_UPDATE_FORCAST = "WEATHER_UPDATE_FORCAST";
+export const WEATHER_UPDATE_forecast = "WEATHER_UPDATE_forecast";
 
 const initialState = {
     current: null,
-    forcast: null
+    forecast: null
 }
 const Weather = (state = initialState, action) => {
     switch(action.type){
         case WEATHER_UPDATE_CURRENT:
             return {...state, current: action.payload}
-        case WEATHER_UPDATE_FORCAST:
-            return {...state, forcast: action.payload}
+        case WEATHER_UPDATE_forecast:
+            return {...state, forecast: action.payload}
         default:
             return state;
     }

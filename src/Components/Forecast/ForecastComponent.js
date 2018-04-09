@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Forcast extends Component {
+class Forecast extends Component {
     
     render(){
-        const { forcast } = this.props.weather;
+        const { forecast } = this.props.weather;
 
         return (
             <div>
-                { forcast && 
+                { forecast && 
                     <div>
-                        <h2>Forcast for {forcast.city.name}</h2>
+                        <h2>Forecast for {forecast.city.name}</h2>
                         <table className="table table-striped">
                             <thead className="thead-dark">
                                 <tr>
@@ -24,8 +24,7 @@ class Forcast extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {forcast.list.map((i, idx) => {
-                                    console.log(i, idx)
+                                {forecast.list.map((i, idx) => {
                                     return(
                                         <tr key={idx}>
                                             <td>{i.dt_txt}</td>
@@ -53,4 +52,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps)(Forcast);
+export default connect(mapStateToProps)(Forecast);

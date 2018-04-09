@@ -1,4 +1,4 @@
-import { getCurrentWeatherByLatLon, getForcastByLatLon } from './Weather'
+import { getCurrentWeatherByLatLon, getforecastByLatLon } from './Weather'
 import {
     GEO_LOCATION_SET_LOCATION,
     GEO_LOCATION_SET_IS_AVAILABLE
@@ -26,7 +26,7 @@ export const getGeoLocation = () => {
                 dispatch(setGeoLocation(position));
                 dispatch(setLocationAvailable(true));
                 dispatch(getCurrentWeatherByLatLon(latitude, longitude));
-                dispatch(getForcastByLatLon(latitude, longitude));
+                dispatch(getforecastByLatLon(latitude, longitude));
             })
         } else {
             dispatch(setLocationAvailable(false));

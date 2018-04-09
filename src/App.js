@@ -55,11 +55,11 @@ class App extends Component {
 					</div>
 				</div>
 					<div className="container main">
-						{ weather.current && weather.forcast &&
+						{ weather.current && weather.forecast &&
 							<div>
 								<ul className="nav nav-tabs">
 									<li className="nav-item"><Link className={ path == "/current" ? "nav-link active" : "nav-link" } to="/current">Current Weather Conditions</Link></li>
-									<li className="nav-item"><Link className={ path == "/forcast" ? "nav-link active" : "nav-link" } to="/forcast">5 Day Forcast</Link></li>
+									<li className="nav-item"><Link className={ path == "/forecast" ? "nav-link active" : "nav-link" } to="/forecast">5 Day Forecast</Link></li>
 								</ul>
 							{ this.props.children }
 							</div>

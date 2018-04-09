@@ -1,7 +1,7 @@
 import { getGeoLocation } from './GeoLocation'
 import {
     WEATHER_UPDATE_CURRENT,
-    WEATHER_UPDATE_FORCAST
+    WEATHER_UPDATE_forecast
 } from '../Reducers/Weather';
 
 const updateCurrent = (weatherData) => {
@@ -11,9 +11,9 @@ const updateCurrent = (weatherData) => {
     }
 }
 
-const updateForcast = (weatherData) => {
+const updateforecast = (weatherData) => {
     return {
-        type: WEATHER_UPDATE_FORCAST,
+        type: WEATHER_UPDATE_forecast,
         payload: weatherData
     }
 }
@@ -27,11 +27,11 @@ const fetchCurrentWeather = (url) => {
     }    
 }
 
-const fetchForcast = (url) => {
+const fetchforecast = (url) => {
     return (dispatch) => {
         fetch(url)
             .then(response => response.json())
-            .then(response => dispatch(updateForcast(response)))
+            .then(response => dispatch(updateforecast(response)))
             .catch(err => console.error(err))
     }
 }
@@ -44,12 +44,12 @@ const getCurrentWeatherByZip = (zip) => {
     return fetchCurrentWeather(`http://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&APPID=4279ef20f8a5d8094b433b8d7886d760`);
 }
 
-export const getForcastByLatLon = (lat, lon) => {
-    return fetchForcast(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&APPID=4279ef20f8a5d8094b433b8d7886d760`);
+export const getforecastByLatLon = (lat, lon) => {
+    return fetchforecast(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&APPID=4279ef20f8a5d8094b433b8d7886d760`);
 }
 
-const getForcastByZip = (zip) => {
-    return fetchForcast(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=4279ef20f8a5d8094b433b8d7886d760`);
+const getforecastByZip = (zip) => {
+    return fetchforecast(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=4279ef20f8a5d8094b433b8d7886d760`);
 }
 
 export const getWeatherByLocation = () => {
@@ -61,6 +61,6 @@ export const getWeatherByLocation = () => {
 export const getWeatherByZip = (zip) => {
     return (dispatch) => {
         dispatch(getCurrentWeatherByZip(zip));
-        dispatch(getForcastByZip(zip));
+        dispatch(getforecastByZip(zip));
     }
 }
